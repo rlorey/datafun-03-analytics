@@ -10,6 +10,18 @@
 # To Run the Module
 uv run python -m datafun.app
 
+## Recent Updates & Accomplishments
+
+### 📊 Titanic Survival Data Processing (Automated Analytics)
+- **Direct Script Integration**: Shifted data-processing logic cleanly into the core operational sequence (`main()`) within `app.py` to ensure reliable top-to-bottom project execution.
+- **Robust Output Handling**: Reconfigured text generation to export a separate, custom metrics file (`data/processed/titanic_class_breakdown.txt`) instead of colliding with default project files.
+- **Dynamic File Overwriting**: Set the text generation layer to utilize file access `mode="w"` so historical data is cleanly overwritten and replaced with brand new data points on every fresh program run.
+- **Correct Workspace Scoping**: Fixed local paths to seamlessly pull inputs from `data/titanic.csv` and securely write processed metrics to the dedicated `data/processed/` path structure.
+
+### 🛠 Environment & Version Control
+- **Unified Testing**: Cleanly vetted local environment package resolution using the `uv run python -m datafun.app` execution method.
+- **Git Pipeline Management**: Managed system line-ending variations safely across environments (`CRLF` to `LF` automatic normalization) and successfully staged changes for synchronization with the remote repository.
+
 ## This Project
 
 This project illustrates **ETVL data pipelines** for extracting raw data,
