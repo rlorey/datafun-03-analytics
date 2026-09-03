@@ -1,0 +1,18 @@
+Titanic Survival & Mortality Breakdown By Passenger Class
+=========================================================
+
+Class 1 Passenger Statistics:
+  - Total Passengers: 216
+  - Total Survived:   136
+  - Total Deaths:     80
+
+Class 2 Passenger Statistics:
+  - Total Passengers: 184
+  - Total Survived:   87
+  - Total Deaths:     97
+
+Class 3 Passenger Statistics:
+  - Total Passengers: 491
+  - Total Survived:   119
+  - Total Deaths:     372
+

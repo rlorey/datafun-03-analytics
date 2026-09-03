@@ -24,6 +24,7 @@ dependencies = [
     "matplotlib", # WHY: Foundational plotting library for data visualization
     "pandas", # WHY: DataFrame library for data manipulation and analysis.
     "openpyxl", # WHY: Excel file support for data import/export.
+    "kagglehub>=1.0.2",
 ]
 
 [dependency-groups]
