@@ -104,6 +104,7 @@ PROCESSED_DIR: Final[Path] = Path("data") / "processed"
 #so its distribution is the natural first summary of this dataset.
 #"""
 # === CSV: SUMMARIZE TWO CATEGORIES ===
+# CUSTOM: Description for Titanic data pipeline
 TITANIC_PIPELINE_DESCRIPTION: Final[str] = r"""
 Read the Titanic passenger CSV file,
 isolate records for individuals who survived,
@@ -111,6 +112,8 @@ tally total survivors grouped by passenger ticket class,
 verify calculations for completeness,
 and write the final class metrics to a text file.
 """
+
+# Custom: Setup variables
 CSV_INPUT: Final[Path] = RAW_DIR / "Titanic-Dataset.csv"
 CSV_OUTPUT: Final[Path] = PROCESSED_DIR / "titanic_survival_by_class.txt"  
 CSV_COLUMN: Final[str] = "Pclass"  
@@ -221,6 +224,7 @@ def main() -> None:
     # Ensure the output folder exists before any pipeline writes to it.
     PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
 
+    # CUSTOM: Log info to terminal
     LOG.info("===================================")
     LOG.info("Titanic pipeline")
     LOG.info("===================================")
@@ -235,12 +239,12 @@ def main() -> None:
     #    log=LOG,
     #.   )
 
-    # Set up a nested dictionary to store counts
-    # Structure will look like: { class_id: {"Survived": 0, "Died": 0} }
+    # Custom: Set up a nested dictionary to store counts
+    # Custom: Structure will look like: { class_id: {"Survived": 0, "Died": 0} }
     stats = defaultdict(lambda: {"Survived": 0, "Died": 0})
 
-    # Read the raw CSV file
-    with open("data/raw/Titanic-Dataset.csv", mode="r", encoding="utf-8") as file:
+    # Custom: Read the CSV file
+    with open(CSV_INPUT, mode="r", encoding="utf-8") as file:
         reader = csv.DictReader(file)
     
         for row in reader:
@@ -253,12 +257,12 @@ def main() -> None:
             elif survived == "0":
                 stats[pclass]["Died"] += 1
 
-    # Write the descriptive breakdown to the output text file
-    with open("data/processed/titanic_class_breakdown.txt", mode="w", encoding="utf-8") as out_file:
+    # Custom: Write the descriptive breakdown to the output text file
+    with open(CSV_OUTPUT, mode="w", encoding="utf-8") as out_file:
         out_file.write("Titanic Survival & Mortality Breakdown By Passenger Class\n")
         out_file.write("=========================================================\n\n")
     
-        # Sort classes numerically (1, 2, 3)
+        # Custom: Sort classes numerically (1, 2, 3)
         for pclass in sorted(stats.keys()):
             survived_count = stats[pclass]["Survived"]
             died_count = stats[pclass]["Died"]
@@ -269,7 +273,7 @@ def main() -> None:
             out_file.write(f"  - Total Survived:   {survived_count}\n")
             out_file.write(f"  - Total Deaths:     {died_count}\n\n")
 
-    print(f"Success! Metrics written to {'data/processed/titanic_survival_by_class.txt'}")
+    print(f"Success! Metrics written to {CSV_OUTPUT}")
 
 
     LOG.info("===================================")
