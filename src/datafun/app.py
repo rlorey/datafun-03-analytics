@@ -1,7 +1,7 @@
 """src/datafun/app.py - Project script.
 
-Author: Denise Case
-Date: 2026-08-23
+Author: Rebecca Lorey
+Date: 2026-09-8-23
 
 HOW TO RUN THIS FILE:
 
